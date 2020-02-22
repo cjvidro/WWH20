@@ -88,6 +88,7 @@ public class parentController
         for(tasks element: school)
         {
             newItem = new HBox();
+            newItem.setSpacing(10);
             date = new DatePicker();
             textBox = new TextField(element.getTask());
             textBox.setUserData("label");
@@ -111,6 +112,7 @@ public class parentController
         for(tasks element: chore)
         {
             newItem = new HBox();
+            newItem.setSpacing(10);
             date = new DatePicker();
             textBox = new TextField(element.getTask());
             textBox.setUserData("label");
@@ -133,6 +135,7 @@ public class parentController
         for(tasks element: sport)
         {
             newItem = new HBox();
+            newItem.setSpacing(10);
             date = new DatePicker();
             textBox = new TextField(element.getTask());
             textBox.setUserData("label");
@@ -155,6 +158,7 @@ public class parentController
         for(tasks element: other)
         {
             newItem = new HBox();
+            newItem.setSpacing(10);
             date = new DatePicker();
             textBox = new TextField(element.getTask());
             textBox.setUserData("label");
