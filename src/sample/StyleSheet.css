@@ -31,28 +31,42 @@
  -fx-font-weight: BOLD;
 }
 
+
+BorderPane{
+ -fx-background-color: transparent;
+}
+
+ScrollPane{
+ -fx-background-color: transparent;
+ -fx-fill: black;
+}
+
+HBox{
+ -fx-background-color: transparent;
+}
+
+VBox{
+ -fx-background-radius: 30;
+ -fx-border-radius: 30;
+ -fx-border-width: 5;
+ -fx-padding: 20px, 10px, 10px, 10px;
+ -fx-border-color: transparent;
+}
+
 #schoolBox{
  -fx-background-color: #c60929;
- -fx-padding: 10px, 10px, 10px, 10px;
- -fx-border-color: #008CBA;
 }
 
 #choresBox{
  -fx-background-color: #106b03;
- -fx-padding: 10px, 10px, 10px, 10px;
- -fx-border-color: #008CBA; 
 }
 
 #sportsBox{
  -fx-background-color: #0542b9;
- -fx-padding: 10px, 10px, 10px, 10px;
- -fx-border-color: #008CBA; 
 }
 
 #otherBox{
  -fx-background-color: #e24104;
- -fx-padding: 10px, 10px, 10px, 10px;
- -fx-border-color: #008CBA; 
 }
 
 .scroll-bar:horizontal .track,
@@ -94,7 +108,7 @@
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
- -fx-background-color :derive(black,90.0%);
+ -fx-background-color :transparent;
  -fx-background-insets : 2.0, 0.0, 0.0;
  -fx-background-radius : 2.0em;
 }
