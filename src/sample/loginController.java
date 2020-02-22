@@ -63,11 +63,7 @@ public class loginController
     private void initialize()
     {
         System.out.println("Entered login initializer!");
-        for(tasks element: school)
-        {
-            System.out.println("There are elements");
-            System.out.println(element.getTask());
-        }
+
     }
 
     /* =================================== Change Scenes =================================== */

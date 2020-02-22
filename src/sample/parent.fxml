@@ -45,11 +45,16 @@
                     <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                             <top>
-                                <Label id="chores" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Chores" underline="true" BorderPane.alignment="CENTER">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="16.0" />
-                                    </font>
-                                </Label>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="Add" mnemonicParsing="false" onAction="#addToChore" text="Button" />
+                                      <Label id="chores" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Chores" underline="true">
+                                          <font>
+                                              <Font name="Segoe UI Bold" size="16.0" />
+                                          </font>
+                                      </Label>
+                           </children>
+                        </HBox>
                             </top>
                             <center>
                                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
@@ -64,16 +69,21 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                             <top>
-                                <Label id="sports" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Sports" underline="true" BorderPane.alignment="CENTER">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="16.0" />
-                                    </font>
-                                </Label>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToSport" text="Button" />
+                                      <Label id="sports" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Sports" underline="true">
+                                          <font>
+                                              <Font name="Segoe UI Bold" size="16.0" />
+                                          </font>
+                                      </Label>
+                           </children>
+                        </HBox>
                             </top>
                             <center>
                                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                                     <content>
-                                        <VBox id="sportsBox" fx:id="sportPane" prefHeight="242.0" prefWidth="308.0" spacing="10.0" stylesheets="@StyleSheet.css" />
+                                        <VBox id="sportsBox" fx:id="sportPane" prefHeight="242.0" prefWidth="476.0" spacing="10.0" stylesheets="@StyleSheet.css" />
                                     </content>
                                     <BorderPane.margin>
                                         <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
@@ -82,11 +92,16 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <top>
-                                <Label id="other" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Other" underline="true" BorderPane.alignment="CENTER">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="16.0" />
-                                    </font>
-                                </Label>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToOther" text="Button" />
+                                      <Label id="other" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Other" underline="true">
+                                          <font>
+                                              <Font name="Segoe UI Bold" size="16.0" />
+                                          </font>
+                                      </Label>
+                           </children>
+                        </HBox>
                             </top>
                             <center>
                                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
@@ -101,11 +116,16 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0">
                             <top>
-                                <Label id="school" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="School" underline="true" BorderPane.alignment="CENTER">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="15.0" />
-                                    </font>
-                                </Label>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="addSchool" mnemonicParsing="false" onAction="#addToSchool" text="Add" />
+                                      <Label id="school" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="School" underline="true">
+                                          <font>
+                                              <Font name="Segoe UI Bold" size="15.0" />
+                                          </font>
+                                      </Label>
+                           </children>
+                        </HBox>
                             </top>
                             <center>
                                 <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
