@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -66,11 +67,25 @@ public class studentController
         sports.add(temp);
     }
 
+    public studentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
+    {
+        // Test values for the ArrayLists.
+        school = new ArrayList<>();
+        chores = new ArrayList<>();
+        sports = new ArrayList<>();
+        other = new ArrayList<>();
+
+        school.addAll(homework);
+        chores.addAll(housework);
+        sports.addAll(sportwork);
+        other.addAll(otherwork);
+
+    }
+
     // Needed to intialize
     @FXML
     private void initialize()
     {
-        System.out.println("Entered initialize.\n");
         outputSchool();
         outputChore();
         outputSport();
@@ -151,8 +166,12 @@ public class studentController
     @FXML
     private void LoginScene(ActionEvent event) throws IOException
     {
-        Parent loginView = FXMLLoader.load(getClass().getResource("login.fxml"));
+        loginController controller = new loginController(school, chores, sports, other);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        loader.setController(controller);
+        Parent loginView = loader.load();
         Scene loginScene = new Scene(loginView);
+
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
@@ -161,14 +180,13 @@ public class studentController
     }
 
 
-
+    // TODO if there's time.
     @FXML
     private void StatScene(ActionEvent event) throws IOException
     {
 
     }
-
-
     /* ===================================================================================== */
+
 }
 

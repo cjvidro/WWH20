@@ -32,26 +32,54 @@ public class loginController
     @FXML
     private PasswordField enterPassword;
 
+    public loginController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sporter, ArrayList<tasks> otherwork)
+    {
+        password = "1234";
+        parent = false;
+
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
+
+        school.addAll(homework);
+        chore.addAll(housework);
+        sport.addAll(sporter);
+        other.addAll(otherwork);
+    }
+
     public loginController()
     {
         password = "1234";
         parent = false;
-    }
 
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
+
+    }
     @FXML
     private void initialize()
     {
-
+        System.out.println("Entered login initializer!");
+        for(tasks element: school)
+        {
+            System.out.println("There are elements");
+            System.out.println(element.getTask());
+        }
     }
 
     /* =================================== Change Scenes =================================== */
     @FXML
     private void StudentScene(ActionEvent event) throws IOException
     {
+        studentController controller = new studentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+        loader.setController(controller);
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
-        
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(studentScene);
@@ -62,12 +90,13 @@ public class loginController
     @FXML
     private void ParentScene(ActionEvent event) throws IOException
     {
+        parentController controller = new parentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("parent.fxml"));
+        loader.setController(controller);
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
 
-        parentController controller = loader.<parentController>getController();
-        controller.passArrays(school, chore, sport, other);
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(studentScene);
@@ -80,9 +109,14 @@ public class loginController
 
     // For logging into the parent account.
     @FXML
-    private void login(ActionEvent event)
+    private void login(ActionEvent event) throws IOException
     {
         parent = password.equals(enterPassword.getText());
+        if(parent)
+        {
+            ParentScene(event);
+        }
+
     }
 
     // Checks to see if they are logged in.
@@ -94,11 +128,4 @@ public class loginController
 
     /* ===================================================================================== */
 
-    public void passLists(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
-    {
-        this.school = school;
-        this.chore = chore;
-        this.sport = sport;
-        this.other = other;
-    }
 }
