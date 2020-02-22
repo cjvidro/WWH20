@@ -13,7 +13,7 @@
 
 <AnchorPane id="masterPane" minHeight="250.0" minWidth="400.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane layoutX="-24.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="400.0" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="-24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="14.0">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="400.0" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <VBox id="loginBackground" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" spacing="20.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                <padding>

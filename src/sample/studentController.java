@@ -93,9 +93,6 @@ public class studentController
 
     }
 
-
-
-
     /* ============================= Output into VBoxes ==================================== */
     @FXML
     private void outputSchool()

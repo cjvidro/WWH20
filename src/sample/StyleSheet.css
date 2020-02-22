@@ -36,28 +36,6 @@
  -fx-font-weight: BOLD;
 }
 
-
-BorderPane{
- -fx-background-color: transparent;
-}
-
-ScrollPane{
- -fx-background-color: transparent;
- -fx-fill: black;
-}
-
-HBox{
- -fx-background-color: transparent;
-}
-
-VBox{
- -fx-background-radius: 30;
- -fx-border-radius: 30;
- -fx-border-width: 5;
- -fx-padding: 20px, 10px, 10px, 10px;
- -fx-border-color: transparent;
-}
-
 #loginBackground{
  -fx-background-color: lightgray;
 }
@@ -76,6 +54,14 @@ VBox{
 
 #otherBox{
  -fx-background-color: #e24104;
+}
+
+.scroll-pane .viewport{
+ -fx-background-color: transparent;
+}
+
+.scroll-pane {
+ -fx-background-color: transparent;
 }
 
 .scroll-bar:horizontal .track,
@@ -117,7 +103,7 @@ VBox{
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
- -fx-background-color :transparent;
+ -fx-background-color :derive(#4D4C4F,10.0%);
  -fx-background-insets : 2.0, 0.0, 0.0;
  -fx-background-radius : 2.0em;
 }
@@ -154,4 +140,26 @@ VBox{
 .check-box:indeterminate  > .box > .mark {
  /* modify mark color */
  -fx-background-color: mark-color;
+}
+
+ScrollPane{
+ -fx-background-color: transparent;
+ -fx-border-color: transparent;
+ -fx-fill: transparent;
+}
+
+BorderPane{
+ -fx-background-color: transparent;
+}
+
+HBox{
+ -fx-background-color: transparent;
+}
+
+VBox{
+ -fx-background-radius: 30;
+ -fx-border-radius: 30;
+ -fx-border-width: 5;
+ -fx-padding: 20px, 10px, 10px, 10px;
+ -fx-border-color: transparent;
 }
