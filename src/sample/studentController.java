@@ -70,7 +70,6 @@ public class studentController
     @FXML
     private void initialize()
     {
-        System.out.println("Entered initialize.\n");
         outputSchool();
         outputChore();
         outputSport();
@@ -151,9 +150,12 @@ public class studentController
     @FXML
     private void LoginScene(ActionEvent event) throws IOException
     {
-        Parent loginView = FXMLLoader.load(getClass().getResource("login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent loginView = loader.load();
         Scene loginScene = new Scene(loginView);
 
+        loginController controller = new loginController();
+        controller.passLists(school, chores, sports, other);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(loginScene);
@@ -170,5 +172,13 @@ public class studentController
 
 
     /* ===================================================================================== */
+
+    public void pass(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
+    {
+        this.school.addAll(school);
+        this.chores.addAll(chore);
+        this.sports.addAll(sport);
+        this.other.addAll(other);
+    }
 }
 

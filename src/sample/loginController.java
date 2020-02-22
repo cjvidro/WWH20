@@ -36,12 +36,22 @@ public class loginController
     {
         password = "1234";
         parent = false;
+
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
     }
 
     @FXML
     private void initialize()
     {
-
+        System.out.println("Entered login initializer!");
+        for(tasks element: school)
+        {
+            System.out.println("There are elements");
+            System.out.println(element.getTask());
+        }
     }
 
     /* =================================== Change Scenes =================================== */
@@ -51,7 +61,7 @@ public class loginController
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
-        
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(studentScene);
@@ -80,9 +90,14 @@ public class loginController
 
     // For logging into the parent account.
     @FXML
-    private void login(ActionEvent event)
+    private void login(ActionEvent event) throws IOException
     {
         parent = password.equals(enterPassword.getText());
+        if(parent)
+        {
+            ParentScene(event);
+        }
+
     }
 
     // Checks to see if they are logged in.
@@ -94,11 +109,11 @@ public class loginController
 
     /* ===================================================================================== */
 
-    public void passLists(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
+    public void passLists(ArrayList<tasks> schools, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
     {
-        this.school = school;
-        this.chore = chore;
-        this.sport = sport;
-        this.other = other;
+        this.school.addAll(schools);
+        this.chore.addAll(chore);
+        this.sport.addAll(sport);
+        this.other.addAll(other);
     }
 }
