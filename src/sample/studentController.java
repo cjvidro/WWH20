@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -84,13 +85,15 @@ public class studentController
     @FXML
     private void outputSchool()
     {
-        CheckBox temp;
+        CheckBox checkbox;
         for(tasks element: school)
         {
-            temp = new CheckBox(element.getTask());
-            if(temp != null)
+            checkbox = new CheckBox(element.getTask());
+            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
+
+            if(checkbox != null)
             {
-                schoolPane.getChildren().add(temp);
+                schoolPane.getChildren().add(checkbox);
             }
         }
 
@@ -99,13 +102,14 @@ public class studentController
     @FXML
     private void outputChore()
     {
-        CheckBox temp;
+        CheckBox checkbox;
         for(tasks element: chores)
         {
-            temp = new CheckBox(element.getTask());
-            if(temp != null)
+            checkbox = new CheckBox(element.getTask());
+            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
+            if(checkbox != null)
             {
-                chorePane.getChildren().add(temp);
+                chorePane.getChildren().add(checkbox);
             }
         }
 
@@ -113,13 +117,14 @@ public class studentController
     @FXML
     private void outputSport()
     {
-        CheckBox temp;
+        CheckBox checkbox;
         for(tasks element: sports)
         {
-            temp = new CheckBox(element.getTask());
-            if(temp != null)
+            checkbox = new CheckBox(element.getTask());
+            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
+            if(checkbox != null)
             {
-                sportPane.getChildren().add(temp);
+                sportPane.getChildren().add(checkbox);
             }
         }
 
@@ -127,13 +132,14 @@ public class studentController
     @FXML
     private void outputOther()
     {
-        CheckBox temp;
+        CheckBox checkbox;
         for(tasks element: other)
         {
-            temp = new CheckBox(element.getTask());
-            if(temp != null)
+            checkbox = new CheckBox(element.getTask());
+            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
+            if(checkbox != null)
             {
-                otherPane.getChildren().add(temp);
+                otherPane.getChildren().add(checkbox);
             }
         }
 
