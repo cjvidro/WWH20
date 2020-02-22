@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -11,7 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("student.fxml"));
-        primaryStage.setTitle("Dev");
+        primaryStage.setTitle("Student Planner");
+        primaryStage.getIcons().add(new Image("hat.png"));
         primaryStage.setScene(new Scene(root, 1024, 576));
         primaryStage.show();
     }
