@@ -11,7 +11,7 @@
          <top>
             <HBox maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1024.0" spacing="15.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="button" minWidth="-Infinity" mnemonicParsing="false" onAction="#test" prefWidth="120.0" text="Parent Login">
+                  <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#LoginScene" prefWidth="120.0" text="Parent Login">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font></Button>

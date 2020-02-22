@@ -27,13 +27,13 @@
                               <Font name="Segoe UI Semibold" size="16.0" />
                            </font>
                         </Label>
-                        <PasswordField />
+                        <PasswordField fx:id="enterPassword" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button fx:id="enterPassword" mnemonicParsing="false" text="Login" />
-                        <Button mnemonicParsing="false" text="Cancel" />
+                        <Button mnemonicParsing="false" onAction="#login" text="Login" />
+                        <Button mnemonicParsing="false" onAction="#StudentScene" text="Cancel" />
                      </children>
                   </HBox>
                </children>
