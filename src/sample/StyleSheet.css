@@ -1,0 +1,39 @@
+#button,#statsButton,#date{
+ -fx-border-color: #008CBA;
+ -fx-border: none;
+ -fx-background-color: white;
+ -fx-font-size: 16;
+ -fx-padding: 8px 16px;
+}
+
+#school,#sports,#chores,#other{
+ -fx-border-color: #008CBA;
+ -fx-border: none;
+ -fx-background-color: white;
+ -fx-font-size: 15;
+ -fx-padding: 4px 8px;
+}
+
+#schoolBox{
+ -fx-background-color: #c60929;
+ -fx-padding: 10px, 10px, 10px, 10px;
+ -fx-border-color: #008CBA;
+}
+
+#choresBox{
+ -fx-background-color: #106b03;
+ -fx-padding: 10px, 10px, 10px, 10px;
+ -fx-border-color: #008CBA; 
+}
+
+#sportsBox{
+ -fx-background-color: #0542b9;
+ -fx-padding: 10px, 10px, 10px, 10px;
+ -fx-border-color: #008CBA; 
+}
+
+#otherBox{
+ -fx-background-color: #e24104;
+ -fx-padding: 10px, 10px, 10px, 10px;
+ -fx-border-color: #008CBA; 
+}
