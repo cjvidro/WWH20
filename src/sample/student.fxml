@@ -24,7 +24,7 @@
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font></Button>
                   <Region maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                  <Label alignment="CENTER" prefWidth="180.0" text="Date: Feb. 20, 2020">
+                  <Label alignment="CENTER" minWidth="-Infinity" prefWidth="180.0" text="Date: Feb. 20, 2020">
                      <font>
                         <Font name="Segoe UI Semibold" size="16.0" />
                      </font>
