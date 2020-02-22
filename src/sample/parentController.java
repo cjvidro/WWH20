@@ -221,4 +221,35 @@ public class parentController
         schoolPane.getChildren().clear();
         outputSchool();
     }
+
+    @FXML
+    private void addToChore(ActionEvent action)
+    {
+        tasks newTask = new tasks("words", new Date());
+        chore.add(newTask);
+        choreText = new ArrayList<>();
+        chorePane.getChildren().clear();
+        outputChore();
+    }
+
+    @FXML
+    private void addToSport(ActionEvent action)
+    {
+        tasks newTask = new tasks("words", new Date());
+        sport.add(newTask);
+        sportText = new ArrayList<>();
+        sportPane.getChildren().clear();
+        outputSport();
+    }
+
+    @FXML
+    private void addToOther(ActionEvent action)
+    {
+        tasks newTask = new tasks("words", new Date());
+        other.add(newTask);
+        otherText = new ArrayList<>();
+        otherPane.getChildren().clear();
+        outputOther();
+    }
+
 }
