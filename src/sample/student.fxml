@@ -53,12 +53,9 @@
                      </top>
                      <center>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                          <content>
-                            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="460.0" prefWidth="1000.0" style="-fx-background-color: rgba(227, 28, 61, 0.5);">
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding></AnchorPane>
-                          </content>
+                           <content>
+                              <VBox fx:id="chorePane" opacity="0.5" prefHeight="252.0" prefWidth="503.0" style="-fx-background-color: green;" />
+                           </content>
                         </ScrollPane>
                      </center>
                   </BorderPane>
@@ -73,11 +70,7 @@
                      <center>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <content>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="460.0" prefWidth="1000.0" style="-fx-background-color: rgba(19, 105, 206, 0.6);">
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding>
-                              </AnchorPane>
+                              <VBox fx:id="sportPane" opacity="0.42" prefHeight="242.0" prefWidth="511.0" style="-fx-background-color: blue;" />
                            </content></ScrollPane>
                      </center>
                   </BorderPane>
@@ -92,11 +85,7 @@
                      <center>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <content>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="460.0" prefWidth="1000.0" style="-fx-background-color: rgba(217, 159, 0, 0.5);">
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding>
-                              </AnchorPane>
+                              <VBox fx:id="otherPane" opacity="0.51" prefHeight="272.0" prefWidth="499.0" style="-fx-background-color: yellow;" />
                            </content>
                         </ScrollPane>
                      </center>
@@ -112,11 +101,7 @@
                      <center>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <content>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="460.0" prefWidth="1000.0" style="-fx-background-color: rgba(43, 114, 14, 0.5);">
-                                 <padding>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </padding>
-                              </AnchorPane>
+                              <VBox fx:id="schoolPane" opacity="0.5" prefHeight="242.0" prefWidth="498.0" style="-fx-background-color: red;" />
                            </content>
                         </ScrollPane>
                      </center>

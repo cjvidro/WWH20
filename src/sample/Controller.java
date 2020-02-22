@@ -25,11 +25,11 @@ public class Controller
     @FXML
     private VBox schoolPane;
     @FXML
-    private Pane chorePane;
+    private VBox chorePane;
     @FXML
-    private AnchorPane sportPane;
+    private VBox sportPane;
     @FXML
-    private AnchorPane otherPane;
+    private VBox otherPane;
 
 
     @FXML
@@ -66,13 +66,6 @@ public class Controller
     @FXML
     private void initialize()
     {
-
-    }
-
-
-    @FXML
-    private void test()
-    {
         TextField text = new TextField();
         text.setText("WORDS ON THE SCREEN!\n");
         schoolPane.getChildren().add(text);
@@ -83,6 +76,13 @@ public class Controller
             tasks = new CheckBox(test[i]);
             schoolPane.getChildren().add(tasks);
         }
+
+    }
+
+
+    @FXML
+    private void test()
+    {
 
     }
 
@@ -113,7 +113,7 @@ public class Controller
 
 
     }
-    // Checks to see if they are logged in.
+    // Checks to see if they are logged in.S
     private boolean loggedIn()
     {
         return parent;
