@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="masterPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane prefHeight="576.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -15,14 +15,14 @@
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font></Button>
-                        <Region maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                        <Label id="date" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefWidth="180.0" stylesheets="@StyleSheet.css" text="Date: Feb. 20, 2020">
+                        <Region maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="5.0" HBox.hgrow="ALWAYS" />
+                        <Label id="date" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" stylesheets="@StyleSheet.css" text="Date: Feb. 20, 2020">
                             <font>
                                 <Font name="Segoe UI Semibold" size="16.0" />
                             </font>
                         </Label>
                         <Region maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="60.0" HBox.hgrow="ALWAYS" />
-                        <Button id="statsButton" minWidth="-Infinity" mnemonicParsing="false" prefWidth="70.0" stylesheets="@StyleSheet.css" text="Stats">
+                        <Button id="statsButton" minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" stylesheets="@StyleSheet.css" text="Stats">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font></Button>
@@ -52,9 +52,9 @@
                                 </Label>
                             </top>
                             <center>
-                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                                     <content>
-                                        <VBox id="choresBox" fx:id="chorePane" prefHeight="252.0" prefWidth="503.0" stylesheets="@StyleSheet.css" />
+                                        <VBox id="choresBox" fx:id="chorePane" prefHeight="252.0" prefWidth="503.0" spacing="10.0" stylesheets="@StyleSheet.css" />
                                     </content>
                                     <BorderPane.margin>
                                         <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
@@ -71,13 +71,13 @@
                                 </Label>
                             </top>
                             <center>
-                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                                     <content>
-                                        <VBox id="sportsBox" fx:id="sportPane" prefHeight="242.0" prefWidth="511.0" stylesheets="@StyleSheet.css" />
+                                        <VBox id="sportsBox" fx:id="sportPane" prefHeight="242.0" prefWidth="308.0" spacing="10.0" stylesheets="@StyleSheet.css" />
                                     </content>
-                                    <padding>
+                                    <BorderPane.margin>
                                         <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
-                                    </padding></ScrollPane>
+                                    </BorderPane.margin></ScrollPane>
                             </center>
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -89,9 +89,9 @@
                                 </Label>
                             </top>
                             <center>
-                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                                     <content>
-                                        <VBox id="otherBox" fx:id="otherPane" prefHeight="272.0" prefWidth="499.0" stylesheets="@StyleSheet.css" />
+                                        <VBox id="otherBox" fx:id="otherPane" prefHeight="272.0" prefWidth="499.0" spacing="10.0" stylesheets="@StyleSheet.css" />
                                     </content>
                                     <BorderPane.margin>
                                         <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
@@ -108,9 +108,9 @@
                                 </Label>
                             </top>
                             <center>
-                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                                     <content>
-                                        <VBox id="schoolBox" fx:id="schoolPane" prefHeight="242.0" prefWidth="498.0" stylesheets="@StyleSheet.css" />
+                                        <VBox id="schoolBox" fx:id="schoolPane" prefHeight="242.0" prefWidth="498.0" spacing="10.0" stylesheets="@StyleSheet.css" />
                                     </content>
                                     <BorderPane.margin>
                                         <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
