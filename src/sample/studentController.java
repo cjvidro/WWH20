@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -64,6 +65,21 @@ public class studentController
         chores.add(temp);
         temp = new tasks("Baseball Practice", date);
         sports.add(temp);
+    }
+
+    public studentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
+    {
+        // Test values for the ArrayLists.
+        school = new ArrayList<>();
+        chores = new ArrayList<>();
+        sports = new ArrayList<>();
+        other = new ArrayList<>();
+
+        school.addAll(homework);
+        chores.addAll(housework);
+        sports.addAll(sportwork);
+        other.addAll(otherwork);
+
     }
 
     // Needed to intialize
@@ -150,12 +166,13 @@ public class studentController
     @FXML
     private void LoginScene(ActionEvent event) throws IOException
     {
+        loginController controller = new loginController(school, chores, sports, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        loader.setController(controller);
         Parent loginView = loader.load();
         Scene loginScene = new Scene(loginView);
 
-        loginController controller = new loginController();
-        controller.passLists(school, chores, sports, other);
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(loginScene);

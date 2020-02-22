@@ -45,6 +45,21 @@ public class parentController
 
     }
 
+    public parentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
+    {
+        // Test values for the ArrayLists.
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
+
+        school.addAll(homework);
+        chore.addAll(housework);
+        sport.addAll(sportwork);
+        other.addAll(otherwork);
+
+    }
+
     @FXML
     private void initialize()
     {
@@ -133,12 +148,11 @@ public class parentController
     @FXML
     private void StudentScene(ActionEvent event) throws IOException
     {
+        studentController controller = new studentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+        loader.setController(controller);
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
-
-        studentController controller = new studentController();
-        controller.pass(school, chore, sport, other);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 

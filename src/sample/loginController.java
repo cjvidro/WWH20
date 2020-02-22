@@ -32,6 +32,22 @@ public class loginController
     @FXML
     private PasswordField enterPassword;
 
+    public loginController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sporter, ArrayList<tasks> otherwork)
+    {
+        password = "1234";
+        parent = false;
+
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
+
+        school.addAll(homework);
+        chore.addAll(housework);
+        sport.addAll(sporter);
+        other.addAll(otherwork);
+    }
+
     public loginController()
     {
         password = "1234";
@@ -41,8 +57,8 @@ public class loginController
         chore = new ArrayList<>();
         sport = new ArrayList<>();
         other = new ArrayList<>();
-    }
 
+    }
     @FXML
     private void initialize()
     {
@@ -58,7 +74,9 @@ public class loginController
     @FXML
     private void StudentScene(ActionEvent event) throws IOException
     {
+        studentController controller = new studentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+        loader.setController(controller);
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
 
@@ -72,12 +90,13 @@ public class loginController
     @FXML
     private void ParentScene(ActionEvent event) throws IOException
     {
+        parentController controller = new parentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("parent.fxml"));
+        loader.setController(controller);
         Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
 
-        parentController controller = loader.<parentController>getController();
-        controller.passArrays(school, chore, sport, other);
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(studentScene);
