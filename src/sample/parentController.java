@@ -77,13 +77,7 @@ public class parentController
         outputSport();
         outputOther();
     }
-
-    @FXML
-    private void createTask(ActionEvent event)
-    {
-
-        //tasks newTask = new tasks()
-    }
+    
     /* ============================= Output into VBoxes ==================================== */
     @FXML
     private void outputSchool()
