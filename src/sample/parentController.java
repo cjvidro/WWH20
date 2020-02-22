@@ -20,6 +20,16 @@ import java.util.List;
 public class parentController
 {
 
+    @FXML
+    private ArrayList<tasks> school;
+    @FXML
+    private ArrayList<tasks> chore;
+    @FXML
+    private ArrayList<tasks> sport;
+    @FXML
+    private ArrayList<tasks> other;
+
+
     public parentController()
     {
 
@@ -29,6 +39,15 @@ public class parentController
     @FXML
     private void initialize()
     {
+
+    }
+
+    public void passArrays(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
+    {
+        this.school = school;
+        this.chore = chore;
+        this.sport = sport;
+        this.other = other;
 
     }
 

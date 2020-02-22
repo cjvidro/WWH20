@@ -24,6 +24,11 @@ public class loginController
     private String password;
     private boolean parent;
 
+    private ArrayList<tasks> school;
+    private ArrayList<tasks> chore;
+    private ArrayList<tasks> sport;
+    private ArrayList<tasks> other;
+
     @FXML
     private PasswordField enterPassword;
 
@@ -43,9 +48,10 @@ public class loginController
     @FXML
     private void StudentScene(ActionEvent event) throws IOException
     {
-        Parent studentView = FXMLLoader.load(getClass().getResource("student.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
+        Parent studentView = loader.load();
         Scene studentScene = new Scene(studentView);
-
+        
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(studentScene);
@@ -56,7 +62,16 @@ public class loginController
     @FXML
     private void ParentScene(ActionEvent event) throws IOException
     {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("parent.fxml"));
+        Parent studentView = loader.load();
+        Scene studentScene = new Scene(studentView);
 
+        parentController controller = loader.<parentController>getController();
+        controller.passArrays(school, chore, sport, other);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(studentScene);
+        window.show();
     }
 
     /* ===================================================================================== */
@@ -78,4 +93,12 @@ public class loginController
 
 
     /* ===================================================================================== */
+
+    public void passLists(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
+    {
+        this.school = school;
+        this.chore = chore;
+        this.sport = sport;
+        this.other = other;
+    }
 }
