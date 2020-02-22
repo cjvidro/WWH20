@@ -180,22 +180,13 @@ public class studentController
     }
 
 
-
+    // TODO if there's time.
     @FXML
     private void StatScene(ActionEvent event) throws IOException
     {
 
     }
-
-
     /* ===================================================================================== */
 
-    public void pass(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
-    {
-        this.school.addAll(school);
-        this.chores.addAll(chore);
-        this.sports.addAll(sport);
-        this.other.addAll(other);
-    }
 }
 

@@ -128,11 +128,4 @@ public class loginController
 
     /* ===================================================================================== */
 
-    public void passLists(ArrayList<tasks> schools, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
-    {
-        this.school.addAll(schools);
-        this.chore.addAll(chore);
-        this.sport.addAll(sport);
-        this.other.addAll(other);
-    }
 }

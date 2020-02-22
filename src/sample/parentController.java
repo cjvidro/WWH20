@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class parentController
@@ -35,6 +36,11 @@ public class parentController
     @FXML
     private VBox otherPane;
 
+    @FXML
+    private TextField task;
+
+    @FXML
+    private Date pick;
 
     public parentController()
     {
@@ -69,15 +75,12 @@ public class parentController
         outputOther();
     }
 
-    public void passArrays(ArrayList<tasks> school, ArrayList<tasks> chore, ArrayList<tasks> sport, ArrayList<tasks> other)
+    @FXML
+    private void createTask(ActionEvent event)
     {
-        this.school.addAll(school);
-        this.chore.addAll(chore);
-        this.sport.addAll(sport);
-        this.other.addAll(other);
 
+        //tasks newTask = new tasks()
     }
-
     /* ============================= Output into VBoxes ==================================== */
     @FXML
     private void outputSchool()
