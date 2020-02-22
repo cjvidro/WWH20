@@ -15,20 +15,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class Controller
+public class studentController
 {
 
-    private boolean parent;
-
-    private String password;
-
     /* Keep track of all the tasks via ArrayLists */
-    private ArrayList<String> school;
-    private ArrayList<String> chores;
-    private ArrayList<String> sports;
-    private ArrayList<String> other;
+    private ArrayList<tasks> school;
+    private ArrayList<tasks> chores;
+    private ArrayList<tasks> sports;
+    private ArrayList<tasks> other;
 
     /* VBoxes to display tasks to be done */
     @FXML
@@ -50,30 +47,28 @@ public class Controller
     @FXML
     private Button button;
 
-    public Controller()
+    public studentController()
     {
-        // Default values.
-        password = "1234";
-        parent = false;
         // Test values for the ArrayLists.
         school = new ArrayList<>();
         chores = new ArrayList<>();
         sports = new ArrayList<>();
         other = new ArrayList<>();
-        school.add("Art");
-        school.add("Math");
-        chores.add("Dishes");
-        sports.add("Baseball Practice");
+        Date date = new Date();
+        tasks temp = new tasks("Art", date);
+        school.add(temp);
+        temp = new tasks("Math", date);
+        school.add(temp);
+        temp = new tasks("Dishes", date);
+        chores.add(temp);
+        temp = new tasks("Baseball Practice", date);
+        sports.add(temp);
     }
 
     // Needed to intialize
     @FXML
     private void initialize()
     {
-        schoolPane = new VBox();
-        chorePane = new VBox();
-        sportPane = new VBox();
-        otherPane = new VBox();
         System.out.println("Entered initialize.\n");
         outputSchool();
         outputChore();
@@ -82,23 +77,7 @@ public class Controller
 
     }
 
-    /* ============================== Login Section ======================================== */
 
-    // For logging into the parent account.
-    @FXML
-    private void login(ActionEvent event)
-    {
-        parent = password.equals(enterPassword.getText());
-    }
-
-    // Checks to see if they are logged in.
-    private boolean loggedIn()
-    {
-        return parent;
-    }
-
-
-    /* ===================================================================================== */
 
 
     /* ============================= Output into VBoxes ==================================== */
@@ -106,9 +85,9 @@ public class Controller
     private void outputSchool()
     {
         CheckBox temp;
-        for(String element: school)
+        for(tasks element: school)
         {
-            temp = new CheckBox(element);
+            temp = new CheckBox(element.getTask());
             if(temp != null)
             {
                 schoolPane.getChildren().add(temp);
@@ -121,9 +100,9 @@ public class Controller
     private void outputChore()
     {
         CheckBox temp;
-        for(String element: chores)
+        for(tasks element: chores)
         {
-            temp = new CheckBox(element);
+            temp = new CheckBox(element.getTask());
             if(temp != null)
             {
                 chorePane.getChildren().add(temp);
@@ -135,9 +114,9 @@ public class Controller
     private void outputSport()
     {
         CheckBox temp;
-        for(String element: sports)
+        for(tasks element: sports)
         {
-            temp = new CheckBox(element);
+            temp = new CheckBox(element.getTask());
             if(temp != null)
             {
                 sportPane.getChildren().add(temp);
@@ -149,9 +128,9 @@ public class Controller
     private void outputOther()
     {
         CheckBox temp;
-        for(String element: other)
+        for(tasks element: other)
         {
-            temp = new CheckBox(element);
+            temp = new CheckBox(element.getTask());
             if(temp != null)
             {
                 otherPane.getChildren().add(temp);
@@ -175,18 +154,7 @@ public class Controller
         window.show();
     }
 
-    @FXML
-    private void StudentScene(ActionEvent event) throws IOException
-    {
-        Parent studentView = FXMLLoader.load(getClass().getResource("student.fxml"));
-        Scene studentScene = new Scene(studentView);
 
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(studentScene);
-        window.show();
-
-    }
 
     @FXML
     private void StatScene(ActionEvent event) throws IOException
@@ -194,11 +162,6 @@ public class Controller
 
     }
 
-    @FXML
-    private void ParentScene(ActionEvent event) throws IOException
-    {
-
-    }
 
     /* ===================================================================================== */
 }
