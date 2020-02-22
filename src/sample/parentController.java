@@ -26,6 +26,11 @@ public class parentController
     private ArrayList<tasks> sport;
     private ArrayList<tasks> other;
 
+    private ArrayList<TextField> schoolText;
+    private ArrayList<TextField> choreText;
+    private ArrayList<TextField> sportText;
+    private ArrayList<TextField> otherText;
+
     /* VBoxes to display tasks to be done */
     @FXML
     private VBox schoolPane;
@@ -48,7 +53,10 @@ public class parentController
         chore = new ArrayList<>();
         sport = new ArrayList<>();
         other = new ArrayList<>();
-
+        otherText = new ArrayList<>();
+        schoolText = new ArrayList<>();
+        choreText = new ArrayList<>();
+        sportText = new ArrayList<>();
     }
 
     public parentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
@@ -58,6 +66,10 @@ public class parentController
         chore = new ArrayList<>();
         sport = new ArrayList<>();
         other = new ArrayList<>();
+        otherText = new ArrayList<>();
+        schoolText = new ArrayList<>();
+        choreText = new ArrayList<>();
+        sportText = new ArrayList<>();
 
         school.addAll(homework);
         chore.addAll(housework);
@@ -85,14 +97,15 @@ public class parentController
     @FXML
     private void outputSchool()
     {
-        CheckBox checkbox;
+        TextField textBox;
         for(tasks element: school)
         {
-            checkbox = new CheckBox(element.getTask());
+            textBox = new TextField(element.getTask());
 
-            if(checkbox != null)
+            if(textBox != null)
             {
-                schoolPane.getChildren().add(checkbox);
+                schoolText.add(textBox);
+                schoolPane.getChildren().add(textBox);
             }
         }
 
@@ -101,13 +114,14 @@ public class parentController
     @FXML
     private void outputChore()
     {
-        CheckBox checkbox;
+        TextField textBox;
         for(tasks element: chore)
         {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
+            textBox = new TextField(element.getTask());
+            if(textBox != null)
             {
-                chorePane.getChildren().add(checkbox);
+                choreText.add(textBox);
+                chorePane.getChildren().add(textBox);
             }
         }
 
@@ -115,13 +129,14 @@ public class parentController
     @FXML
     private void outputSport()
     {
-        CheckBox checkbox;
+        TextField textBox;
         for(tasks element: sport)
         {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
+            textBox = new TextField(element.getTask());
+            if(textBox != null)
             {
-                sportPane.getChildren().add(checkbox);
+                sportText.add(textBox);
+                sportPane.getChildren().add(textBox);
             }
         }
 
@@ -129,13 +144,14 @@ public class parentController
     @FXML
     private void outputOther()
     {
-        CheckBox checkbox;
+        TextField textBox;
         for(tasks element: other)
         {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
+            textBox = new TextField(element.getTask());
+            if(textBox != null)
             {
-                otherPane.getChildren().add(checkbox);
+                otherText.add(textBox);
+                otherPane.getChildren().add(textBox);
             }
         }
 
@@ -147,6 +163,7 @@ public class parentController
     @FXML
     private void StudentScene(ActionEvent event) throws IOException
     {
+        update();
         studentController controller = new studentController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("student.fxml"));
         loader.setController(controller);
@@ -161,4 +178,47 @@ public class parentController
     }
 
     /* ===================================================================================== */
+
+    private void update()
+    {
+        // Test values for the ArrayLists.
+        school = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
+        other = new ArrayList<>();
+        Date temp = new Date();
+        for(int i = 0; i < schoolText.size(); i++)
+        {
+            tasks newTask = new tasks(schoolText.get(i).getText(), temp);
+            school.add(newTask);
+        }
+        for(int i = 0; i < choreText.size(); i++)
+        {
+            tasks newTask = new tasks(choreText.get(i).getText(), temp);
+            chore.add(newTask);
+        }
+
+        for(int i = 0; i < sportText.size(); i++)
+        {
+            tasks newTask = new tasks(sportText.get(i).getText(), temp);
+            sport.add(newTask);
+        }
+
+        for(int i = 0; i < otherText.size(); i++)
+        {
+            tasks newTask = new tasks(otherText.get(i).getText(), temp);
+            other.add(newTask);
+        }
+
+    }
+
+    @FXML
+    private void addToSchool(ActionEvent action)
+    {
+        tasks newTask = new tasks("words", new Date());
+        school.add(newTask);
+        schoolText = new ArrayList<>();
+        schoolPane.getChildren().clear();
+        outputSchool();
+    }
 }
