@@ -1,3 +1,11 @@
+#masterPane{
+ -fx-background-image: url("background.jpg");
+ -fx-background-repeat: stretch;
+ -fx-background-size: 1920 1080;
+ -fx-background-position: center center;
+ -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
 #button,#statsButton,#date{
  -fx-border-color: #008CBA;
  -fx-border: none;
