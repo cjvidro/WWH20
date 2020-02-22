@@ -104,7 +104,6 @@ public class studentController
         for(tasks element: school)
         {
             checkbox = new CheckBox(element.getTask());
-            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
 
             if(checkbox != null)
             {
@@ -121,7 +120,6 @@ public class studentController
         for(tasks element: chores)
         {
             checkbox = new CheckBox(element.getTask());
-            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
             if(checkbox != null)
             {
                 chorePane.getChildren().add(checkbox);
@@ -136,7 +134,6 @@ public class studentController
         for(tasks element: sports)
         {
             checkbox = new CheckBox(element.getTask());
-            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
             if(checkbox != null)
             {
                 sportPane.getChildren().add(checkbox);
@@ -151,7 +148,6 @@ public class studentController
         for(tasks element: other)
         {
             checkbox = new CheckBox(element.getTask());
-            checkbox.setStyle("-fx-font-size: 18px; -fx-font-family: 'Segoe UI Semibold'; -fx-text-fill: WHITE;");
             if(checkbox != null)
             {
                 otherPane.getChildren().add(checkbox);
