@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="250.0" minWidth="400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="masterPane" minHeight="250.0" minWidth="400.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="400.0" prefHeight="576.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="-24.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="250.0" minWidth="400.0" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="-24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="14.0">
          <center>
-            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: RED;" BorderPane.alignment="CENTER">
+            <VBox id="loginBackground" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" spacing="20.0" stylesheets="@StyleSheet.css" BorderPane.alignment="CENTER">
                <padding>
                   <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
                <children>
-                  <Label text="Parent Login">
+                  <Label id="loginLabel" stylesheets="@StyleSheet.css" text="Parent Login">
                      <font>
                         <Font name="Segoe UI Bold" size="24.0" />
                      </font>
@@ -22,18 +28,18 @@
                   <Region maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="20.0" prefWidth="300.0" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Label text="Password:">
+                        <Label id="password" stylesheets="@StyleSheet.css" text="Password:">
                            <font>
                               <Font name="Segoe UI Semibold" size="16.0" />
                            </font>
                         </Label>
-                        <PasswordField fx:id="enterPassword" />
+                        <PasswordField id="passwordBox" fx:id="enterPassword" stylesheets="@StyleSheet.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#login" text="Login" />
-                        <Button mnemonicParsing="false" onAction="#StudentScene" text="Cancel" />
+                        <Button id="button" mnemonicParsing="false" onAction="#login" stylesheets="@StyleSheet.css" text="Login" />
+                        <Button id="button" mnemonicParsing="false" onAction="#StudentScene" stylesheets="@StyleSheet.css" text="Cancel" />
                      </children>
                   </HBox>
                </children>
