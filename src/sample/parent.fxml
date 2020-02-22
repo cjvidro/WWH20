@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="masterPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="masterPane" fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane prefHeight="576.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <HBox maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1024.0" spacing="15.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="button" minWidth="-Infinity" mnemonicParsing="false" onAction="#StudentScene" prefWidth="140.0" stylesheets="@StyleSheet.css" text="Logout">
+                        <Button fx:id="button" minWidth="-Infinity" mnemonicParsing="false" onAction="#StudentScene" prefWidth="140.0" stylesheets="@StyleSheet.css" text="Save">
                             <font>
                                 <Font name="Segoe UI Semibold" size="14.0" />
                             </font></Button>
@@ -47,13 +58,29 @@
                             <top>
                         <HBox BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="Add" mnemonicParsing="false" onAction="#addToChore" text="Button" />
+                              <Button fx:id="Add" mnemonicParsing="false" onAction="#addToChore" prefWidth="70.0" text="Add">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                                       <Label id="chores" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Chores" underline="true">
                                           <font>
                                               <Font name="Segoe UI Bold" size="16.0" />
                                           </font>
                                       </Label>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="40.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="addSchool13" cacheShape="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToSchool" prefHeight="25.0" prefWidth="25.0" scaleShape="false" visible="false" />
                            </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
                         </HBox>
                             </top>
                             <center>
@@ -71,13 +98,29 @@
                             <top>
                         <HBox BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToSport" text="Button" />
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToSport" prefWidth="70.0" text="Add">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                                       <Label id="sports" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Sports" underline="true">
                                           <font>
                                               <Font name="Segoe UI Bold" size="16.0" />
                                           </font>
                                       </Label>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="40.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="addSchool12" cacheShape="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToSchool" prefHeight="25.0" prefWidth="25.0" scaleShape="false" visible="false" />
                            </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
                         </HBox>
                             </top>
                             <center>
@@ -94,13 +137,29 @@
                             <top>
                         <HBox BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToOther" text="Button" />
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addToOther" prefWidth="70.0" text="Add">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                                       <Label id="other" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="Other" underline="true">
                                           <font>
                                               <Font name="Segoe UI Bold" size="16.0" />
                                           </font>
                                       </Label>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="40.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="addSchool11" cacheShape="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToSchool" prefHeight="25.0" prefWidth="25.0" scaleShape="false" visible="false" />
                            </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
                         </HBox>
                             </top>
                             <center>
@@ -116,15 +175,31 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0">
                             <top>
-                        <HBox BorderPane.alignment="CENTER">
+                        <HBox prefWidth="50.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
                            <children>
-                              <Button fx:id="addSchool" mnemonicParsing="false" onAction="#addToSchool" text="Add" />
-                                      <Label id="school" alignment="CENTER" prefWidth="100.0" stylesheets="@StyleSheet.css" text="School" underline="true">
+                              <Button fx:id="addSchool" mnemonicParsing="false" onAction="#addToSchool" prefWidth="70.0" text="Add">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="12.0" />
+                                 </font></Button>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                      <Label id="school" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" prefWidth="100.0" stylesheets="@StyleSheet.css" text="School" underline="true">
                                           <font>
                                               <Font name="Segoe UI Bold" size="15.0" />
                                           </font>
                                       </Label>
+                              <Region maxHeight="0.0" maxWidth="1.7976931348623157E308" minHeight="0.0" prefHeight="0.0" prefWidth="40.0" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="addSchool1" cacheShape="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToSchool" prefHeight="25.0" prefWidth="25.0" scaleShape="false" visible="false" />
                            </children>
+                           <padding>
+                              <Insets left="30.0" right="30.0" />
+                           </padding>
                         </HBox>
                             </top>
                             <center>
