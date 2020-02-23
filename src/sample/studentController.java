@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,13 +9,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static javafx.scene.paint.Color.WHITE;
 
 public class studentController
 {
@@ -24,10 +29,10 @@ public class studentController
     private ArrayList<tasks> chore;
     private ArrayList<tasks> sport;
     private ArrayList<tasks> other;
-    private ArrayList<CheckBox> schoolCheck;
-    private ArrayList<CheckBox> choreCheck;
-    private ArrayList<CheckBox> sportCheck;
-    private ArrayList<CheckBox> otherCheck;
+    private ArrayList<HBox> schoolCheck;
+    private ArrayList<HBox> choreCheck;
+    private ArrayList<HBox> sportCheck;
+    private ArrayList<HBox> otherCheck;
 
     /* VBoxes to display tasks to be done */
     @FXML
@@ -94,68 +99,63 @@ public class studentController
     }
 
     /* ============================= Output into VBoxes ==================================== */
-    @FXML
-    private void outputSchool()
-    {
-        CheckBox checkbox;
-        for(tasks element: school)
-        {
-            checkbox = new CheckBox(element.getTask());
 
-            if(checkbox != null)
-            {
-                schoolCheck.add(checkbox);
-                schoolPane.getChildren().add(checkbox);
+    private void addToPane(ArrayList<tasks> tastList, ArrayList<HBox> check, VBox pane) {
+        CheckBox checkbox;
+        Text textBox;
+        HBox newTask;
+
+        for(tasks element: tastList) {
+            newTask = new HBox();
+            checkbox = new CheckBox();
+            textBox = new Text(element.getTask());
+
+            textBox.setFill(WHITE);
+
+            CheckBox finalCheckbox = checkbox;
+            Text finalTextBox = textBox;
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    if (finalCheckbox.isSelected()) {
+                        finalTextBox.setStyle("-fx-strikethrough: true");
+                    } else {
+                        finalTextBox.setStyle("-fx-strikethrough: false");
+                    }
+                }
+            };
+
+            checkbox.setOnAction(event);
+
+            if(checkbox != null) {
+                checkbox.setUserData("label");
+                newTask.getChildren().addAll(checkbox, textBox);
+                pane.getChildren().add(newTask);
+                check.add(newTask);
             }
         }
-
     }
 
     @FXML
-    private void outputChore()
-    {
-        CheckBox checkbox;
-        for(tasks element: chore)
-        {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
-            {
-                choreCheck.add(checkbox);
-                chorePane.getChildren().add(checkbox);
-            }
-        }
-
+    private void outputSchool() {
+        addToPane(school, schoolCheck, schoolPane);
     }
+
     @FXML
-    private void outputSport()
-    {
-        CheckBox checkbox;
-        for(tasks element: sport)
-        {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
-            {
-                sportCheck.add(checkbox);
-                sportPane.getChildren().add(checkbox);
-            }
-        }
-
+    private void outputChore() {
+        addToPane(chore, choreCheck, chorePane);
     }
+
     @FXML
-    private void outputOther()
-    {
-        CheckBox checkbox;
-        for(tasks element: other)
-        {
-            checkbox = new CheckBox(element.getTask());
-            if(checkbox != null)
-            {
-                otherCheck.add(checkbox);
-                otherPane.getChildren().add(checkbox);
-            }
-        }
-
+    private void outputSport() {
+        addToPane(sport, sportCheck, sportPane);
     }
+
+    @FXML
+    private void outputOther() {
+        addToPane(other, otherCheck, otherPane);
+    }
+
     /* ===================================================================================== */
 
     /* =================================== Change Scenes =================================== */
@@ -193,13 +193,31 @@ public class studentController
 
     // Used to set the boolean of done inside of the tasks.
     // Does this based off of the if the checkbox has been ticked or not.
-    private void check(ArrayList<CheckBox> checker, ArrayList<tasks> destination)
+    private void check(ArrayList<HBox> checker, ArrayList<tasks> destination)
     {
+        CheckBox marked;
         for(int i = 0; i < checker.size(); i++)
         {
-            destination.get(i).setDone(checker.get(i).isSelected());
-            System.out.println("Task: " + destination.get(i).getTask() + " is " + checker.get(i).isSelected());
+            marked = checkHelper(checker.get(i));
+            if(marked != null)
+            {
+                destination.get(i).setDone(marked.isSelected());
+                System.out.println("Task: " + destination.get(i).getTask() + " is " + marked.isSelected());
+            }
         }
+    }
+
+    private CheckBox checkHelper(HBox checker)
+    {
+        for(Node n: checker.getChildren())
+        {
+            if("label".equals(n.getUserData()) == true)
+            {
+                CheckBox check = (CheckBox) n;
+                return check;
+            }
+        }
+        return null;
     }
 }
 

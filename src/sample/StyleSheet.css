@@ -123,10 +123,10 @@
  -fx-font-size: 20px;
  -fx-font-family: "Segoe UI Semibold";
  -fx-text-fill: white;
-
+ -fx-strikethrough: true;
 }
 
-TextField, DatePicker {
+TextField, DatePicker, Text {
  -fx-font-family: "Segoe UI Semibold";
  -fx-font-size: 20px;
 }
