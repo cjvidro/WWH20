@@ -20,7 +20,7 @@
     <children>
         <BorderPane prefHeight="576.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-                <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="1024.0" spacing="15.0" BorderPane.alignment="CENTER">
+                <HBox maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1024.0" spacing="15.0" style="-fx-background-color: lightgray;" BorderPane.alignment="CENTER">
                     <children>
                         <Button fx:id="button" minWidth="-Infinity" mnemonicParsing="false" onAction="#StudentScene" prefWidth="140.0" stylesheets="@StyleSheet.css" text="Save">
                             <font>
@@ -41,6 +41,9 @@
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
+               <BorderPane.margin>
+                  <Insets bottom="25.0" />
+               </BorderPane.margin>
                 </HBox>
             </top>
             <center>
