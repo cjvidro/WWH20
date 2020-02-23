@@ -17,7 +17,12 @@ import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static javafx.scene.paint.Color.WHITE;
 
@@ -55,6 +60,9 @@ public class studentController
 
     @FXML
     private Button button;
+
+    @FXML
+    private Label date;
 
     public studentController()
     {
@@ -96,6 +104,10 @@ public class studentController
         outputChore();
         outputSport();
         outputOther();
+        String pattern = "MMMMM dd, yyyy";
+        SimpleDateFormat format = new SimpleDateFormat(pattern, new Locale("en", "US"));
+        String current = format.format(new Date());
+        date.setText(current);
     }
 
     /* ============================= Output into VBoxes ==================================== */
