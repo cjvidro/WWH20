@@ -126,6 +126,11 @@
 
 }
 
+TextField, DatePicker {
+ -fx-font-family: "Segoe UI Semibold";
+ -fx-font-size: 20px;
+}
+
 .check-box:selected > .box {
  /* background color for selected checkbox */
  -fx-background-color: selected-box-color;
