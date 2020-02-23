@@ -123,7 +123,7 @@
  -fx-font-size: 20px;
  -fx-font-family: "Segoe UI Semibold";
  -fx-text-fill: white;
-
+ -fx-strikethrough: true;
 }
 
 TextField, DatePicker {
