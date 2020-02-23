@@ -167,7 +167,8 @@ public class studentController
 
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
+        window.setWidth(((Node)event.getSource()).getScene().getWidth());
+        window.setHeight(((Node)event.getSource()).getScene().getHeight());
         window.setScene(loginScene);
         window.show();
     }
