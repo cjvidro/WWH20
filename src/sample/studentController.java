@@ -10,12 +10,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static javafx.scene.paint.Color.WHITE;
 
 public class studentController
 {
@@ -98,13 +101,16 @@ public class studentController
 
     private void addToPane(ArrayList<tasks> tastList, ArrayList<HBox> check, VBox pane) {
         CheckBox checkbox;
-        TextField textBox;
+        Text textBox;
         HBox newTask;
 
         for(tasks element: tastList) {
             newTask = new HBox();
             checkbox = new CheckBox();
-            textBox = new TextField(element.getTask());
+            textBox = new Text(element.getTask());
+
+            textBox.setFill(WHITE);
+
             if(checkbox != null) {
                 newTask.getChildren().addAll(checkbox, textBox);
                 pane.getChildren().add(newTask);
@@ -140,10 +146,10 @@ public class studentController
     @FXML
     private void LoginScene(ActionEvent event) throws IOException
     {
-        check(schoolCheck, school);
-        check(choreCheck, chore);
-        check(sportCheck, sport);
-        check(otherCheck, other);
+//        check(schoolCheck, school);
+//        check(choreCheck, chore);
+//        check(sportCheck, sport);
+//        check(otherCheck, other);
 
         loginController controller = new loginController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
@@ -170,13 +176,13 @@ public class studentController
 
     // Used to set the boolean of done inside of the tasks.
     // Does this based off of the if the checkbox has been ticked or not.
-    private void check(ArrayList<HBox> checker, ArrayList<tasks> destination)
-    {
-        for(int i = 0; i < checker.size(); i++)
-        {
-            destination.get(i).setDone(checker.get(i).isSelected());
-            System.out.println("Task: " + destination.get(i).getTask() + " is " + checker.get(i).isSelected());
-        }
-    }
+//    private void check(ArrayList<HBox> checker, ArrayList<tasks> destination)
+//    {
+//        for(int i = 0; i < checker.size(); i++)
+//        {
+//            destination.get(i).setDone(checker.get(i).isSelected());
+//            System.out.println("Task: " + destination.get(i).getTask() + " is " + checker.get(i).isSelected());
+//        }
+//    }
 }
 
