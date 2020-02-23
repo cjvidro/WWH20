@@ -158,11 +158,6 @@ public class parentController
 
     private void update()
     {
-        // Test values for the ArrayLists.
-        school = new ArrayList<>();
-        chore = new ArrayList<>();
-        sport = new ArrayList<>();
-        other = new ArrayList<>();
 
         updateHelper(schoolBox, school);
         updateHelper(choreBox, chore);
@@ -173,29 +168,46 @@ public class parentController
 
     private void updateHelper(ArrayList<HBox> boxes, ArrayList<tasks> destination)
     {
+        ArrayList<tasks> trueTemp = new ArrayList<>();
+        trueTemp.addAll(destination);
+        destination.clear();
         String words = new String();
-        Date temp = new Date();
         tasks newTask;
         for(int i = 0; i < boxes.size(); i++)
         {
-            for(Node n: boxes.get(i).getChildren())
+            tasks origin = trueTemp.get(i);
+            TextField text = fetch(boxes.get(i));
+            words = text.getText();
+            if(words.equals(trueTemp.get(i).getTask()) == true)
             {
-                if("label".equals(n.getUserData()))
-                {
-                    TextField text = (TextField) n;
-                    words = text.getText();
+                newTask = trueTemp.get(i);
+            }
+            else
+            {
+                newTask = new tasks(words, new Date());
+            }
 
-                    newTask = new tasks(words, temp);
-
-                    if(!(newTask.getTask().equals("") == true || newTask.getTask().equals("(Insert Task Here)") == true) )
-                    {
-                        destination.add(newTask);
-                    }
-                }
-
+            if(!(newTask.getTask().equals("") == true || newTask.getTask().equals("(Insert Task Here)") == true) )
+            {
+                destination.add(newTask);
             }
         }
+
     }
+
+    private TextField fetch(HBox box)
+    {
+        for(Node n: box.getChildren())
+        {
+            if("label".equals(n.getUserData()) == true)
+            {
+                TextField text = (TextField) n;
+                return text;
+            }
+        }
+        return null;
+    }
+
     @FXML
     private void addToSchool(ActionEvent action)
     {

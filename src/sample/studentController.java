@@ -140,6 +140,11 @@ public class studentController
             checkbox.setOnAction(event);
 
             if(checkbox != null) {
+                if(element.getDone() == true)
+                {
+                    checkbox.setSelected(true);
+                    finalTextBox.setStyle("-fx-strikethrough: true");
+                }
                 checkbox.setUserData("label");
                 newTask.getChildren().addAll(checkbox, textBox);
                 pane.getChildren().add(newTask);
@@ -214,7 +219,6 @@ public class studentController
             if(marked != null)
             {
                 destination.get(i).setDone(marked.isSelected());
-                System.out.println("Task: " + destination.get(i).getTask() + " is " + marked.isSelected());
             }
         }
     }
