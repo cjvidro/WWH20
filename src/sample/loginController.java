@@ -62,7 +62,6 @@ public class loginController
     @FXML
     private void initialize()
     {
-        System.out.println("Entered login initializer!");
 
     }
 

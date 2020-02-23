@@ -7,27 +7,27 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.control.CheckBox;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class studentController
 {
 
     /* Keep track of all the tasks via ArrayLists */
     private ArrayList<tasks> school;
-    private ArrayList<tasks> chores;
-    private ArrayList<tasks> sports;
+    private ArrayList<tasks> chore;
+    private ArrayList<tasks> sport;
     private ArrayList<tasks> other;
+    private ArrayList<CheckBox> schoolCheck;
+    private ArrayList<CheckBox> choreCheck;
+    private ArrayList<CheckBox> sportCheck;
+    private ArrayList<CheckBox> otherCheck;
 
     /* VBoxes to display tasks to be done */
     @FXML
@@ -38,6 +38,8 @@ public class studentController
     private VBox sportPane;
     @FXML
     private VBox otherPane;
+
+
 
 
     @FXML
@@ -53,31 +55,30 @@ public class studentController
     {
         // Test values for the ArrayLists.
         school = new ArrayList<>();
-        chores = new ArrayList<>();
-        sports = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
         other = new ArrayList<>();
-        Date date = new Date();
-        tasks temp = new tasks("Art", date);
-        school.add(temp);
-        temp = new tasks("Math", date);
-        school.add(temp);
-        temp = new tasks("Dishes", date);
-        chores.add(temp);
-        temp = new tasks("Baseball Practice", date);
-        sports.add(temp);
+        schoolCheck = new ArrayList<>();
+        choreCheck = new ArrayList<>();
+        sportCheck = new ArrayList<>();
+        otherCheck = new ArrayList<>();
     }
 
     public studentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
     {
         // Test values for the ArrayLists.
         school = new ArrayList<>();
-        chores = new ArrayList<>();
-        sports = new ArrayList<>();
+        chore = new ArrayList<>();
+        sport = new ArrayList<>();
         other = new ArrayList<>();
+        schoolCheck = new ArrayList<>();
+        choreCheck = new ArrayList<>();
+        sportCheck = new ArrayList<>();
+        otherCheck = new ArrayList<>();
 
         school.addAll(homework);
-        chores.addAll(housework);
-        sports.addAll(sportwork);
+        chore.addAll(housework);
+        sport.addAll(sportwork);
         other.addAll(otherwork);
 
     }
@@ -90,7 +91,6 @@ public class studentController
         outputChore();
         outputSport();
         outputOther();
-
     }
 
     /* ============================= Output into VBoxes ==================================== */
@@ -104,6 +104,7 @@ public class studentController
 
             if(checkbox != null)
             {
+                schoolCheck.add(checkbox);
                 schoolPane.getChildren().add(checkbox);
             }
         }
@@ -114,11 +115,12 @@ public class studentController
     private void outputChore()
     {
         CheckBox checkbox;
-        for(tasks element: chores)
+        for(tasks element: chore)
         {
             checkbox = new CheckBox(element.getTask());
             if(checkbox != null)
             {
+                choreCheck.add(checkbox);
                 chorePane.getChildren().add(checkbox);
             }
         }
@@ -128,11 +130,12 @@ public class studentController
     private void outputSport()
     {
         CheckBox checkbox;
-        for(tasks element: sports)
+        for(tasks element: sport)
         {
             checkbox = new CheckBox(element.getTask());
             if(checkbox != null)
             {
+                sportCheck.add(checkbox);
                 sportPane.getChildren().add(checkbox);
             }
         }
@@ -147,6 +150,7 @@ public class studentController
             checkbox = new CheckBox(element.getTask());
             if(checkbox != null)
             {
+                otherCheck.add(checkbox);
                 otherPane.getChildren().add(checkbox);
             }
         }
@@ -159,7 +163,12 @@ public class studentController
     @FXML
     private void LoginScene(ActionEvent event) throws IOException
     {
-        loginController controller = new loginController(school, chores, sports, other);
+        check(schoolCheck, school);
+        check(choreCheck, chore);
+        check(sportCheck, sport);
+        check(otherCheck, other);
+
+        loginController controller = new loginController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         loader.setController(controller);
         Parent loginView = loader.load();
@@ -181,5 +190,15 @@ public class studentController
     }
     /* ===================================================================================== */
 
+    // Used to set the boolean of done inside of the tasks.
+    // Does this based off of the if the checkbox has been ticked or not.
+    private void check(ArrayList<CheckBox> checker, ArrayList<tasks> destination)
+    {
+        for(int i = 0; i < checker.size(); i++)
+        {
+            destination.get(i).setDone(checker.get(i).isSelected());
+            System.out.println("Task: " + destination.get(i).getTask() + " is " + checker.get(i).isSelected());
+        }
+    }
 }
 

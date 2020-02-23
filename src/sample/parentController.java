@@ -235,7 +235,6 @@ public class parentController
                 {
                     TextField text = (TextField) n;
 
-                    System.out.println("Accessible Text: " + text.getText());
                     words = text.getText();
 
                     if(words != null)
@@ -260,7 +259,6 @@ public class parentController
                 {
                     TextField text = (TextField) n;
 
-                    System.out.println("Accessible Text: " + text.getText());
                     words = text.getText();
 
                     if(words != null)
