@@ -22,6 +22,8 @@ public class Main extends Application {
         primaryStage.setTitle("Student Planner");
         primaryStage.getIcons().add(new Image("hat.png"));
         primaryStage.setScene(new Scene(root, 1024, 576));
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(550);
         primaryStage.show();
     }
 
