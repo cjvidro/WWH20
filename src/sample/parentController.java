@@ -12,8 +12,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class parentController
 {
@@ -37,6 +39,9 @@ public class parentController
     private VBox sportPane;
     @FXML
     private VBox otherPane;
+
+    @FXML
+    private Label date;
 
     public parentController()
     {
@@ -76,16 +81,19 @@ public class parentController
         outputChore();
         outputSport();
         outputOther();
+        String pattern = "MMMMM dd, yyyy";
+        SimpleDateFormat format = new SimpleDateFormat(pattern, new Locale("en", "US"));
+        String current = format.format(new Date());
+        date.setText(current);
     }
     
     /* ============================= Output into VBoxes ==================================== */
-    @FXML
-    private void outputSchool()
+    private void outputHelper(ArrayList<HBox> boxes, ArrayList<tasks> source, VBox pane)
     {
         TextField textBox;
         HBox newItem;
         DatePicker date;
-        for(tasks element: school)
+        for(tasks element: source)
         {
             newItem = new HBox();
             newItem.setSpacing(10);
@@ -96,81 +104,32 @@ public class parentController
             if(textBox != null)
             {
                 newItem.getChildren().addAll(textBox, date);
-                schoolBox.add(newItem);
-                schoolPane.getChildren().add(newItem);
+                boxes.add(newItem);
+                pane.getChildren().add(newItem);
             }
         }
+    }
 
+    @FXML
+    private void outputSchool()
+    {
+        outputHelper(schoolBox, school, schoolPane);
     }
 
     @FXML
     private void outputChore()
     {
-        TextField textBox;
-        HBox newItem;
-        DatePicker date;
-        for(tasks element: chore)
-        {
-            newItem = new HBox();
-            newItem.setSpacing(10);
-            date = new DatePicker();
-            textBox = new TextField(element.getTask());
-            textBox.setUserData("label");
-
-            if(textBox != null)
-            {
-                newItem.getChildren().addAll(textBox, date);
-                choreBox.add(newItem);
-                chorePane.getChildren().add(newItem);
-            }
-        }
-
+        outputHelper(choreBox, chore, chorePane);
     }
     @FXML
     private void outputSport()
     {
-        TextField textBox;
-        HBox newItem;
-        DatePicker date;
-        for(tasks element: sport)
-        {
-            newItem = new HBox();
-            newItem.setSpacing(10);
-            date = new DatePicker();
-            textBox = new TextField(element.getTask());
-            textBox.setUserData("label");
-
-            if(textBox != null)
-            {
-                newItem.getChildren().addAll(textBox, date);
-                sportBox.add(newItem);
-                sportPane.getChildren().add(newItem);
-            }
-        }
-
+        outputHelper(sportBox, sport, sportPane);
     }
     @FXML
     private void outputOther()
     {
-        TextField textBox;
-        HBox newItem;
-        DatePicker date;
-        for(tasks element: other)
-        {
-            newItem = new HBox();
-            newItem.setSpacing(10);
-            date = new DatePicker();
-            textBox = new TextField(element.getTask());
-            textBox.setUserData("label");
-
-            if(textBox != null)
-            {
-                newItem.getChildren().addAll(textBox, date);
-                otherBox.add(newItem);
-                otherPane.getChildren().add(newItem);
-            }
-        }
-
+        outputHelper(otherBox, other, otherPane);
     }
     /* ===================================================================================== */
 
@@ -204,87 +163,22 @@ public class parentController
         chore = new ArrayList<>();
         sport = new ArrayList<>();
         other = new ArrayList<>();
-        Date temp = new Date();
+
+        updateHelper(schoolBox, school);
+        updateHelper(choreBox, chore);
+        updateHelper(sportBox, sport);
+        updateHelper(otherBox, other);
+
+    }
+
+    private void updateHelper(ArrayList<HBox> boxes, ArrayList<tasks> destination)
+    {
         String words = new String();
-        String code = "label";
+        Date temp = new Date();
         tasks newTask;
-
-        for(int i = 0; i < schoolBox.size(); i++)
+        for(int i = 0; i < boxes.size(); i++)
         {
-            for(Node n: schoolBox.get(i).getChildren())
-            {
-                if(code.equals(n.getUserData()))
-                {
-                    TextField text = (TextField) n;
-                    words = text.getText();
-
-                    if(words != null)
-                    {
-                        newTask = new tasks(words, temp);
-
-                        if (newTask.getTask().equals("") != true)
-                        {
-                            school.add(newTask);
-                        }
-                    }
-                }
-            }
-        }
-
-        words = "";
-
-        for(int i = 0; i < choreBox.size(); i++)
-        {
-            for(Node n: choreBox.get(i).getChildren())
-            {
-                if(code.equals(n.getUserData()))
-                {
-                    TextField text = (TextField) n;
-
-                    words = text.getText();
-
-                    if(words != null)
-                    {
-                        newTask = new tasks(words, temp);
-
-                        if (newTask.getTask().equals("") != true)
-                        {
-                            chore.add(newTask);
-                        }
-                    }
-                }
-            }
-        }
-
-        words = "";
-        for(int i = 0; i < sportBox.size(); i++)
-        {
-            for(Node n: sportBox.get(i).getChildren())
-            {
-                if("label".equals(n.getUserData()))
-                {
-                    TextField text = (TextField) n;
-
-                    words = text.getText();
-
-                    if(words != null)
-                    {
-                        newTask = new tasks(words, temp);
-
-                        if (newTask.getTask().equals("") != true)
-                        {
-                            sport.add(newTask);
-                        }
-                    }
-                }
-            }
-        }
-
-        words = "";
-
-        for(int i = 0; i < otherBox.size(); i++)
-        {
-            for(Node n: otherBox.get(i).getChildren())
+            for(Node n: boxes.get(i).getChildren())
             {
                 if("label".equals(n.getUserData()))
                 {
@@ -293,17 +187,15 @@ public class parentController
 
                     newTask = new tasks(words, temp);
 
-                    if(newTask.getTask().equals("") != true)
+                    if(!(newTask.getTask().equals("") == true || newTask.getTask().equals("(Insert Task Here)") == true) )
                     {
-                        other.add(newTask);
+                        destination.add(newTask);
                     }
                 }
 
             }
         }
-
     }
-
     @FXML
     private void addToSchool(ActionEvent action)
     {
@@ -311,7 +203,6 @@ public class parentController
         school.add(newTask);
         for(int i = 0; i < schoolBox.size(); i++)
         {
-            System.out.println("For loop fired!");
             String text = obtainTask(schoolBox, i);
             newTask = new tasks(text, new Date());
             school.set(i, newTask);
@@ -363,7 +254,6 @@ public class parentController
         other.add(newTask);
         for(int i = 0; i < otherBox.size(); i++)
         {
-            System.out.println("For loop fired!");
             String text = obtainTask(otherBox, i);
             newTask = new tasks(text, new Date());
             other.set(i, newTask);
