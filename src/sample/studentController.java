@@ -9,20 +9,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 import static javafx.scene.paint.Color.WHITE;
 
@@ -50,8 +49,6 @@ public class studentController
     private VBox otherPane;
 
 
-
-
     @FXML
     private PasswordField enterPassword;
 
@@ -64,6 +61,10 @@ public class studentController
     @FXML
     private Label date;
 
+    static SystemTray tray;
+    static TrayIcon trayIcon;
+    Timer timer;
+
     public studentController()
     {
         // Test values for the ArrayLists.
@@ -75,6 +76,18 @@ public class studentController
         choreCheck = new ArrayList<>();
         sportCheck = new ArrayList<>();
         otherCheck = new ArrayList<>();
+
+        tray = SystemTray.getSystemTray();
+
+        java.awt.Image image = Toolkit.getDefaultToolkit().createImage("hat.png");
+        trayIcon = new TrayIcon(image, "Demo");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Student Planner Reminder");
+        try {
+            tray.add(trayIcon);
+        } catch (AWTException e) {
+            System.out.println(e);
+        }
     }
 
     public studentController(ArrayList<tasks> homework, ArrayList<tasks> housework, ArrayList<tasks> sportwork, ArrayList<tasks> otherwork)
@@ -93,6 +106,21 @@ public class studentController
         chore.addAll(housework);
         sport.addAll(sportwork);
         other.addAll(otherwork);
+
+
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    System.out.println("Ran " + allComplete());
+
+                    if(!allComplete()){
+                        System.out.println("Running Reminder: " + new java.util.Date());
+                        trayIcon.displayMessage("You still have tasks left to do!", "Planner Reminder", TrayIcon.MessageType.INFO);
+                    }
+                }
+            }, 0, 180000);
+
 
     }
 
@@ -185,6 +213,9 @@ public class studentController
         check(sportCheck, sport);
         check(otherCheck, other);
 
+        if (timer != null) {
+            timer.cancel();
+        }
         loginController controller = new loginController(school, chore, sport, other);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         loader.setController(controller);
@@ -207,6 +238,14 @@ public class studentController
 
     }
     /* ===================================================================================== */
+
+    @FXML
+    private void checkEverything(ActionEvent event) {
+        check(schoolCheck, school);
+        check(choreCheck, chore);
+        check(sportCheck, sport);
+        check(otherCheck, other);
+    }
 
     // Used to set the boolean of done inside of the tasks.
     // Does this based off of the if the checkbox has been ticked or not.
@@ -234,6 +273,34 @@ public class studentController
             }
         }
         return null;
+    }
+
+    private Boolean allComplete(){
+        for (tasks schoolTask: school ) {
+            if(!schoolTask.getDone()) {
+                return false;
+            }
+        }
+
+        for (tasks choreTask: chore ) {
+            if(!choreTask.getDone()) {
+                return false;
+            }
+        }
+
+        for (tasks sportTask: sport ) {
+            if(!sportTask.getDone()) {
+                return false;
+            }
+        }
+
+        for (tasks otherTask: other ) {
+            if(!otherTask.getDone()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 
